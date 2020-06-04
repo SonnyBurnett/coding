@@ -63,3 +63,25 @@ start2 = time.time()
 print("Answer2:",
       sum(map(lambda x: x if x % 3 == 0 or x % 5 == 0 else 0, range(MAX_NUMBER))),
       "it took me ", time.time() - start2, " seconds")
+
+
+#
+# Using predicate without lambda
+#
+
+start10 = time.time()
+
+def is_division_of_3_or_5(x):
+    return x % 3 == 0 or x % 5 == 0
+
+result = sum(filter(is_division_of_3_or_5, range(MAX_NUMBER)))
+print("Answer10:", result,  "it took me ", time.time() - start10, " seconds")
+
+
+#
+# Solution using a predicate in combination with lambda
+#
+start11 = time.time()
+result = sum(filter(lambda x : x % 3 == 0 or x % 5 == 0, range(MAX_NUMBER)))
+print("Answer11:", result,  "it took me ", time.time() - start11, " seconds")
+
